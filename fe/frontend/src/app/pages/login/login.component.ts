@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit{
       localStorage.setItem('username',this.loginObj.username)
     }else {
       console.log("Login Faild")
+      alert("Tai khoan hoac mat khau khong dung")
     }
   }
   async sleep(delay:any) {
