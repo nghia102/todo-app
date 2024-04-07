@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+	<title>todo</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href=
+"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<h1 class="row">
+		&nbsp;&nbsp;&nbsp; 
+		TODO APP 
+		&nbsp;&nbsp;&nbsp;
+		</h1>
+		<br/><br/>
+		<div class="row">
+			<form class="form-inline col-sm-offset-3">
+				<div class="input-group">
+					<span class="input-group-addon">
+					<i class="glyphicon glyphicon-pencil"></i>
+					</span>
+					<input type="text" class="form-control" name="input1"
+						placeholder="todo-item" 
+						id="box" style="width: 30vw" [(ngModel)]="inputTodo" />
+				</div>
+				<div class="form-group">
+					<input type="button"
+						class="btn btn-primary form-control" 
+						value="add" style="width: 10vw"
+						(click)="add_item()" />
+				</div>
+				<br>
+				<div *ngFor="let item of user.todos; index as i">{{user.todos[i].task}}
+					<!-- <div > OK</div> -->
+					<input *ngIf="user.todos[i].completed" type="checkbox" name = "checked1" checked (click) = checkedOnchange() [(ngModel)]="checkedList[i]" />
+					<input *ngIf="!user.todos[i].completed" type="checkbox" name = "checked2"(click) = checkedOnchange() [(ngModel)]="checkedList[i]" />
+
+					<!-- <div *ngIf="!user.todos[i].completed"> Ko OK</div> -->
+
+				</div>
+			</form>
+			<br>
+			<div style = "text-align: center;">
+			<button style = "align-items: center;" (click) = "saveData()">Save</button>
+
+			</div>
+		</div>
+		
+		
+	</div>
+	<!-- <script type="text/javascript" src="main.js"></script> -->
+</body>
+
+</html>
